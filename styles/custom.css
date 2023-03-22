@@ -1,0 +1,15 @@
+.banner-parallax {
+    background-image: url("https://cdn.sanity.io/images/7yx5ag0h/production/af286422d960ebe1281721cb25150cac8873de49-999x455.jpg");
+}
+
+.service-parallax {
+    background-image: url("https://cdn.sanity.io/images/7yx5ag0h/production/6197e4b1c57cac847c7b4e1338f5350615f2b3d2-595x387.webp");
+}
+
+.fun-parallax {
+    background-image: url("https://cdn.sanity.io/images/7yx5ag0h/production/82909f5241bd22df544e4b29c73cd99a4ba7ccef-1440x900.png");
+}
+
+.bg-custom {
+    background-color: rgba(83, 83, 117, 0.7);
+}
