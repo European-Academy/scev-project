@@ -13,3 +13,22 @@
 .bg-custom {
     background-color: rgba(83, 83, 117, 0.7);
 }
+
+.custom-tb li {
+    @apply py-6;
+}
+
+.custom-ul {
+    @apply flex md:flex-row flex-col flex-auto
+}
+.custom-ul li {
+    @apply px-6 md:w-1/3 text-3xl font-bold
+}
+
+.custom-ul li>ul {
+    @apply flex-col
+}
+
+.custom-ul li>ul>li {
+    @apply px-0 w-full text-lg font-semibold
+}

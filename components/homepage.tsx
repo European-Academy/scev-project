@@ -2,6 +2,7 @@ import { groq } from "next-sanity";
 import imageUrlBuilder from '@sanity/image-url'
 import Image from "next/image";
 import Head from 'next/head'
+import { client } from '../lib/sanity.client'
 import {
     PagePadding,
     Title,
@@ -39,7 +40,11 @@ export const query = groq`
     },
     "approachGallery": pageBuilder[@.slug.current == 'approach-img'] {
         _key,
-        images,
+        "imageUrl": images[] {
+            _key,
+            alt,
+            "url":asset->url
+        }
     },
     "aboutUs": pageBuilder[@.slug.current == 'about'] {
         _key,
@@ -78,6 +83,12 @@ export const query = groq`
   }
 `
 
+const builder = imageUrlBuilder(client)
+
+function urlFor(source: any) {
+    return builder.image(source)
+}
+
 export function HomeFn({ data }: any) {
     return (
         <>
@@ -112,70 +123,98 @@ export function HomeFn({ data }: any) {
                                 </div>
                             ))}
                         </div>
-                        <div className="items-center justify-center md:h-screen bg-fixed bg-center bg-cover service-parallax">
+                        <div className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom">
-                                <PagePadding>
-                                    {page.ourServices.map((items: any) => (
-                                        <div key={items._key} className="py-20">
-                                            <Title title={items.blockHeading} big />
-                                            {BlockComponent(items.contents)}
-                                        </div>
-                                    ))}
-                                </PagePadding>
+                                <div className="md:py-20">
+                                    <PagePadding>
+                                        {page.ourServices.map((items: any) => (
+                                            <div key={items._key} className="py-16">
+                                                <Title title={items.blockHeading} big />
+                                                <div className="py-10">
+                                                    {BlockComponent(items.contents)}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </PagePadding>
+                                </div>
                             </div>
                         </div>
                         {page.ourApproach.map((items: any) => (
+                            <PagePadding>
+                                <div key={items._key} className="py-16">
+                                    <Title title={items.blockHeading} big />
+                                    <div className="py-10">
+                                        {BlockComponent(items.contents)}
+                                    </div>
+                                </div>
+                            </PagePadding>
+                        ))}
+
+                        {page.approachGallery.map((items: any) => (
                             <div key={items._key}>
-                                <Title title={items.blockHeading} big />
-                                {BlockComponent(items.contents)}
+                                <Grid three>
+                                    {items.imageUrl.map((img: any) => (
+                                        <div key={img._key} className="w-full">
+                                            <Image alt={img.alt} src={img.url} width={500} height={500} />
+                                        </div>
+                                    ))}
+                                </Grid>
                             </div>
                         ))}
-                        
+
                         {page.aboutUs.map((items: any) => (
-                            <div key={items._key}>
-                                <Title title={items.blockHeading} big />
-                                {BlockComponent(items.contents)}
-                            </div>
+                            <PagePadding>
+                                <div key={items._key} className="py-16">
+                                    <Title title={items.blockHeading} big />
+                                    <div className="py-10">
+                                        {BlockComponent(items.contents)}
+                                    </div>
+                                </div>
+                            </PagePadding>
                         ))}
                         <div className="bg-gray-1 text-black py-20">
                             <PagePadding>
                                 {page.ethics.map((items: any) => (
                                     <div key={items._key}>
                                         <Title title={items.blockHeading} big />
-                                        {BlockComponent(items.contents)}
+                                        <div className="py-10">
+                                            {BlockComponent(items.contents)}
+                                        </div>
                                     </div>
                                 ))}
                             </PagePadding>
                         </div>
-                        <div className="items-center justify-center md:h-screen bg-fixed bg-center bg-cover fun-parallax">
-                            <div className="items-center justify-center h-full w-full bg-custom">
-                                <PagePadding>
-                                    {page.funFacts.map((items: any) => (
-                                        <div key={items._key}>
-                                            <Title title={items.heading} big />
-                                            <TableComponent>
-                                                <thead>
-                                                    {items.head.map((tbdata: any) => (
-                                                        <tr key={tbdata._key}>
-                                                            {tbdata.cells.map((cells: any) => (
-                                                                <th key={cells} className="text-3xl">{cells}</th>
-                                                            ))}
-                                                        </tr>
-                                                    ))}
-                                                </thead>
-                                                <tbody>
-                                                    {items.body.map((tbdata: any) => (
-                                                        <tr key={tbdata._key}>
-                                                            {tbdata.cells.map((cells: any) => (
-                                                                <td key={cells} className="text-xl">{cells}</td>
-                                                            ))}
-                                                        </tr>
-                                                    ))}
-                                                </tbody>
-                                            </TableComponent>
-                                        </div>
-                                    ))}
-                                </PagePadding>
+                        <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
+                            <div className="items-center justify-center h-full w-full bg-custom text-white">
+                                <div className="md:py-48">
+                                    <PagePadding>
+                                        {page.funFacts.map((items: any) => (
+                                            <div key={items._key}>
+                                                <Title title={items.heading} big />
+                                                <TableComponent>
+                                                    <thead>
+                                                        {items.head.map((tbdata: any) => (
+                                                            <tr key={tbdata._key}>
+                                                                {tbdata.cells.map((cells: any) => (
+                                                                    <th key={cells} className="text-3xl">{cells}</th>
+                                                                ))}
+                                                            </tr>
+                                                        ))}
+                                                    </thead>
+                                                    <tbody>
+                                                        {items.body.map((tbdata: any) => (
+                                                            <tr key={tbdata._key}>
+                                                                {tbdata.cells.map((cells: any) => (
+                                                                    <td key={cells} className="text-xl">{cells}</td>
+                                                                ))}
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </TableComponent>
+                                            </div>
+                                        ))}
+                                    </PagePadding>
+                                </div>
                             </div>
                         </div>
                         <div>

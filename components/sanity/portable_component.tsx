@@ -40,14 +40,14 @@ export const PortableComponent = {
         
     },
     block: {
-        h1: ({ children }: any) => <h1 className="md:text-8xl text-3xl py-2">{children}</h1>,
+        h1: ({ children }: any) => <h1 className="md:text-8xl text-5xl py-2">{children}</h1>,
         h2: ({ children }: any) => <h2 className="md:text-6xl text-2xl py-2">{children}</h2>,
         h3: ({ children }: any) => <h3 className="md:text-4xl text-xl py-2">{children}</h3>,
         h4: ({ children }: any) => <h4 className="md:text-3xl text-lg py-2">{children}</h4>,
     },
     list: {
-        bullet: ({ children }: any) => <ul className="py-2">{children}</ul>,
-        number: ({ children }: any) => <ol className="py-2 md:flex">{children}</ol>,
+        bullet: ({ children }: any) => <ul className="py-2 custom-ul mx-auto">{children}</ul>,
+        number: ({ children }: any) => <ol className="py-2 flex md:flex-row flex-col custom-tb">{children}</ol>,
     },
 }
 

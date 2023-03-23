@@ -9,7 +9,7 @@ export const Grid: React.FC<{
     children: React.ReactNode
 }> = ({ two, three, four, five, six, children }) => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div>
             <div className={clsx(
                 'grid grid-cols-1 gap-6',
                 two ? 'lg:grid-cols-2' : '',
