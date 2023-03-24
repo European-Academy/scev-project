@@ -11,7 +11,7 @@ export const Title: React.FC<{
             {/* <div className={color}></div> */}
             <div className={clsx(
                 'md:text-3xl text-xl pb-6 pt-6 font-poppinsBold',
-                big ? 'md:text-7xl text-5xl': '',
+                big ? 'md:text-7xl text-6xl': '',
             )}>
                 
                 {title}

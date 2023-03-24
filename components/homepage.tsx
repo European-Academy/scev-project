@@ -101,7 +101,7 @@ export function HomeFn({ data }: any) {
                     </Head>
                     <div>
                         <NavBar />
-                        <div id="to_banner" className="flex items-center justify-center md:h-screen bg-fixed bg-center bg-cover banner-parallax">
+                        <div id="to_banner" className="flex items-center justify-center h-screen bg-fixed bg-center bg-cover banner-parallax">
                             <div className="flex items-center justify-center h-full w-full bg-custom">
                                 <PagePadding>
                                     {page.homeBanner.map((items: any) => (
@@ -113,21 +113,23 @@ export function HomeFn({ data }: any) {
                             </div>
                         </div>
                         <div id="to_whyus" className="bg-gray text-white md:py-20 py-14">
-                            {page.whyUs.map((items: any) => (
-                                <div key={items._key} className="md:py-16">
-                                    <PagePadding>
+                            <PagePadding>
+                                {page.whyUs.map((items: any) => (
+                                    <div key={items._key} className="md:py-16">
+
                                         <Title title={items.blockHeading} big />
                                         <div className="text-xl">
                                             {BlockComponent(items.contents)}
                                         </div>
-                                    </PagePadding>
-                                </div>
-                            ))}
+
+                                    </div>
+                                ))}
+                            </PagePadding>
                         </div>
                         <div id="to_services" className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom">
-                                <div className="md:py-16">
-                                    <PagePadding>
+                                <PagePadding>
+                                    <div className="md:py-16">
                                         {page.ourServices.map((items: any) => (
                                             <div key={items._key} className="py-16">
                                                 <Title title={items.blockHeading} big />
@@ -136,21 +138,21 @@ export function HomeFn({ data }: any) {
                                                 </div>
                                             </div>
                                         ))}
-                                    </PagePadding>
-                                </div>
+                                    </div>
+                                </PagePadding>
                             </div>
                         </div>
                         <div className="md:py-20 py-14">
-                            {page.ourApproach.map((items: any) => (
-                                <PagePadding>
+                            <PagePadding>
+                                {page.ourApproach.map((items: any) => (
                                     <div key={items._key} className="py-16">
                                         <Title title={items.blockHeading} big />
                                         <div className="py-10">
                                             {BlockComponent(items.contents)}
                                         </div>
                                     </div>
-                                </PagePadding>
-                            ))}
+                                ))}
+                            </PagePadding>
                         </div>
 
                         {page.approachGallery.map((items: any) => (
@@ -165,16 +167,16 @@ export function HomeFn({ data }: any) {
                             </div>
                         ))}
                         <div id="to_about" className="md:py-20 py-14">
-                            {page.aboutUs.map((items: any) => (
-                                <PagePadding>
+                            <PagePadding>
+                                {page.aboutUs.map((items: any) => (
                                     <div key={items._key} className="py-16">
                                         <Title title={items.blockHeading} big />
                                         <div className="py-10">
                                             {BlockComponent(items.contents)}
                                         </div>
                                     </div>
-                                </PagePadding>
-                            ))}
+                                ))}
+                            </PagePadding>
                         </div>
                         <div className="bg-gray-1 text-black md:py-20 py-14">
                             <PagePadding>
@@ -190,7 +192,7 @@ export function HomeFn({ data }: any) {
                         </div>
                         <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom text-white">
-                                <div className="md:py-48">
+                                <div className="md:py-48 py-32">
                                     <PagePadding>
                                         {page.funFacts.map((items: any) => (
                                             <div key={items._key}>
@@ -198,18 +200,18 @@ export function HomeFn({ data }: any) {
                                                 <TableComponent>
                                                     <thead>
                                                         {items.head.map((tbdata: any) => (
-                                                            <tr key={tbdata._key}>
+                                                            <tr key={tbdata._key} className="tr-className">
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <th key={cells._key} className="font-poppinsBold text-4xl md:w-1/4 md:pb-10">{cells}</th>
+                                                                    <th key={cells._key} className="font-poppinsBold text-4xl md:w-1/4 md:py-10">{cells}</th>
                                                                 ))}
                                                             </tr>
                                                         ))}
                                                     </thead>
                                                     <tbody>
                                                         {items.body.map((tbdata: any) => (
-                                                            <tr key={tbdata._key}>
+                                                            <tr key={tbdata._key} className="tr-className">
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <td key={cells._key} className="text-xl md:px-2">{cells}</td>
+                                                                    <td key={cells._key} className="text-xl md:px-2 align-top">{cells}</td>
                                                                 ))}
                                                             </tr>
                                                         ))}

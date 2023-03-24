@@ -8,9 +8,10 @@ export const TableComponent: React.FC<{
 
     return (
         <>
-            <table className='table-fixed text-center'>
-                {children}
-                {/* <thead>
+            <div className="flex items-center sm:justify-center">
+                <table className='table-fixed text-center'>
+                    {children}
+                    {/* <thead>
                     <tr>
                         <th>{tbhead}</th>
                     </tr>
@@ -20,7 +21,8 @@ export const TableComponent: React.FC<{
                         <td>{cell}</td>
                     </tr>
                 </tbody> */}
-            </table>
+                </table>
+            </div>
         </>
     )
 }
