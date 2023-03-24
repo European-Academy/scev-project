@@ -1,8 +1,9 @@
 import { Fragment } from "react";
-import Link from 'next/link'
+import Links from 'next/link'
 import Image from "next/image";
 import { Disclosure, Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Link } from 'react-scroll'
 
 export const NavBar: React.FC<{
     logoSrc?: any
@@ -13,14 +14,27 @@ export const NavBar: React.FC<{
     button?: boolean
     btn_url?: any
 }> = ({ menu, url, yes_scroll, scroll_to }) => {
+
+    const Btns = ({ data, dataLink }: any) => {
+        return (
+            <>
+                <div>
+                    <Link to={dataLink} spy={true} smooth={true}>
+                        <button className="text-black hover:text-gray font-bold text-lg uppercase">{data}</button>
+                    </Link>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <Popover className="bg-white sticky top-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="flex justify-between items-center py-5 md:justify-start md:space-x-10">
-                        <div className="flex justify-start lg:w-0 lg:flex-1">
+                    <div className="flex items-center justify-between py-5 md:space-x-10">
+                        <div className="flex lg:flex-1">
                             <div className="h-18 w-auto">
-                                <Link href={"https://scientificevents.eu/"}>
+                                <Links href={"https://scientificevents.eu/"}>
                                     {/* <a> */}
                                     <Image
                                         src="/images/scevLogo.png"
@@ -29,8 +43,15 @@ export const NavBar: React.FC<{
                                         height={60}
                                     />
                                     {/* </a> */}
-                                </Link>
+                                </Links>
                             </div>
+                        </div>
+                        <div className="lg:flex lg:gap-x-12">
+                            <Btns data="Home" dataLink="to_banner" />
+                            <Btns data="Why Us" dataLink="to_whyus" />
+                            <Btns data="Our Services" dataLink="to_services" />
+                            <Btns data="About Us" dataLink="to_about" />
+                            <Btns data="Contact" dataLink="to_contact" />
                         </div>
                         <div className="-mr-2 -my-2 md:hidden">
                             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-black hover:text-gray-500">

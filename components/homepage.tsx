@@ -9,7 +9,8 @@ import {
     BlockComponent,
     Grid,
     NavBar,
-    TableComponent
+    TableComponent,
+    ContactUs
 } from './index'
 
 export const query = groq`
@@ -64,7 +65,7 @@ export const query = groq`
             cells
           },
           "body":[blockTable.rows[1]] {
-            key,
+            _key,
             cells
           }
     },
@@ -100,7 +101,7 @@ export function HomeFn({ data }: any) {
                     </Head>
                     <div>
                         <NavBar />
-                        <div className="flex items-center justify-center md:h-screen bg-fixed bg-center bg-cover banner-parallax">
+                        <div id="to_banner" className="flex items-center justify-center md:h-screen bg-fixed bg-center bg-cover banner-parallax">
                             <div className="flex items-center justify-center h-full w-full bg-custom">
                                 <PagePadding>
                                     {page.homeBanner.map((items: any) => (
@@ -111,9 +112,9 @@ export function HomeFn({ data }: any) {
                                 </PagePadding>
                             </div>
                         </div>
-                        <div className="bg-gray text-white py-20">
+                        <div id="to_whyus" className="bg-gray text-white md:py-20 py-14">
                             {page.whyUs.map((items: any) => (
-                                <div key={items._key}>
+                                <div key={items._key} className="md:py-16">
                                     <PagePadding>
                                         <Title title={items.blockHeading} big />
                                         <div className="text-xl">
@@ -123,9 +124,9 @@ export function HomeFn({ data }: any) {
                                 </div>
                             ))}
                         </div>
-                        <div className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
+                        <div id="to_services" className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom">
-                                <div className="md:py-20">
+                                <div className="md:py-16">
                                     <PagePadding>
                                         {page.ourServices.map((items: any) => (
                                             <div key={items._key} className="py-16">
@@ -139,16 +140,18 @@ export function HomeFn({ data }: any) {
                                 </div>
                             </div>
                         </div>
-                        {page.ourApproach.map((items: any) => (
-                            <PagePadding>
-                                <div key={items._key} className="py-16">
-                                    <Title title={items.blockHeading} big />
-                                    <div className="py-10">
-                                        {BlockComponent(items.contents)}
+                        <div className="md:py-20 py-14">
+                            {page.ourApproach.map((items: any) => (
+                                <PagePadding>
+                                    <div key={items._key} className="py-16">
+                                        <Title title={items.blockHeading} big />
+                                        <div className="py-10">
+                                            {BlockComponent(items.contents)}
+                                        </div>
                                     </div>
-                                </div>
-                            </PagePadding>
-                        ))}
+                                </PagePadding>
+                            ))}
+                        </div>
 
                         {page.approachGallery.map((items: any) => (
                             <div key={items._key}>
@@ -161,18 +164,19 @@ export function HomeFn({ data }: any) {
                                 </Grid>
                             </div>
                         ))}
-
-                        {page.aboutUs.map((items: any) => (
-                            <PagePadding>
-                                <div key={items._key} className="py-16">
-                                    <Title title={items.blockHeading} big />
-                                    <div className="py-10">
-                                        {BlockComponent(items.contents)}
+                        <div id="to_about" className="md:py-20 py-14">
+                            {page.aboutUs.map((items: any) => (
+                                <PagePadding>
+                                    <div key={items._key} className="py-16">
+                                        <Title title={items.blockHeading} big />
+                                        <div className="py-10">
+                                            {BlockComponent(items.contents)}
+                                        </div>
                                     </div>
-                                </div>
-                            </PagePadding>
-                        ))}
-                        <div className="bg-gray-1 text-black py-20">
+                                </PagePadding>
+                            ))}
+                        </div>
+                        <div className="bg-gray-1 text-black md:py-20 py-14">
                             <PagePadding>
                                 {page.ethics.map((items: any) => (
                                     <div key={items._key}>
@@ -196,7 +200,7 @@ export function HomeFn({ data }: any) {
                                                         {items.head.map((tbdata: any) => (
                                                             <tr key={tbdata._key}>
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <th key={cells} className="text-3xl">{cells}</th>
+                                                                    <th key={cells._key} className="text-3xl">{cells}</th>
                                                                 ))}
                                                             </tr>
                                                         ))}
@@ -205,7 +209,7 @@ export function HomeFn({ data }: any) {
                                                         {items.body.map((tbdata: any) => (
                                                             <tr key={tbdata._key}>
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <td key={cells} className="text-xl">{cells}</td>
+                                                                    <td key={cells._key} className="text-xl">{cells}</td>
                                                                 ))}
                                                             </tr>
                                                         ))}
@@ -217,33 +221,48 @@ export function HomeFn({ data }: any) {
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            {page.headGetin.map((items: any) => (
-                                <div key={items._key}>
-                                    <Title title={items.heading} big />
-                                </div>
-                            ))}
-                        </div>
-                        <Grid two>
-                            <div>
-                                this
-                            </div>
-                            <div>
-                                <Grid two>
-                                    {page.patraAddress.map((items: any) => (
-                                        <div key={items._key}>
-                                            {BlockComponent(items.contents)}
+                        <div id="to_contact">
+                            <div className="py-32">
+                                <PagePadding>
+                                    <div>
+                                        {page.headGetin.map((items: any) => (
+                                            <div key={items._key}>
+                                                <Title title={items.heading} big />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    {/* </PagePadding> */}
+                                    <Grid two>
+                                        <div className="md:relative md:w-full">
+                                            <div className="md:absolute md:inset-y-0 md:right-0 md:w-3/5">
+                                                <ContactUs />
+                                            </div>
                                         </div>
-                                    ))}
-                                    {page.brusselAddress.map((items: any) => (
-                                        <div key={items._key}>
-                                            {BlockComponent(items.contents)}
-                                        </div>
-                                    ))}
-                                </Grid>
-                            </div>
-                        </Grid>
+                                        <div>
+                                            <div className="mb-6">
 
+                                                <Image alt="ScEv Logo" src="/images/contact-logo.png" width={287} height={200} className="mx-auto md:mx-0 my-10 md:my-0" />
+
+                                            </div>
+                                            <div className="font-bold">
+                                                <Grid two>
+                                                    {page.patraAddress.map((items: any) => (
+                                                        <div key={items._key}>
+                                                            {BlockComponent(items.contents)}
+                                                        </div>
+                                                    ))}
+                                                    {page.brusselAddress.map((items: any) => (
+                                                        <div key={items._key}>
+                                                            {BlockComponent(items.contents)}
+                                                        </div>
+                                                    ))}
+                                                </Grid>
+                                            </div>
+                                        </div>
+                                    </Grid>
+                                </PagePadding>
+                            </div>
+                        </div>
                     </div>
                 </div>
             ))}

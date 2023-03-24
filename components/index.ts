@@ -10,3 +10,5 @@ export * from './common/title'
 
 export * from './sanity/portable_component'
 export * from './sanity/table_component'
+
+export * from './forms/contact-us'
