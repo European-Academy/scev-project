@@ -7,10 +7,13 @@ export const Title: React.FC<{
 }> = ({ title, subtitle, big }) => {
     return (
         <div>
+            <div className='w-16 p-2 bg-blue'></div>
+            {/* <div className={color}></div> */}
             <div className={clsx(
                 'md:text-3xl text-xl pb-6 pt-6 font-poppinsBold',
                 big ? 'md:text-7xl text-5xl': '',
             )}>
+                
                 {title}
             </div>
             {subtitle && <div className='text-lg'>{subtitle}</div>}
