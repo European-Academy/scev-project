@@ -41,8 +41,9 @@ const Homepage: React.FC<HomeFnProps> = ({ pagedata, preview }) => {
 
     return (
         <>
-            
-            <Contents realdata={pagedata} previewdata={preview} />
+            <div className="font-poppins">
+                <Contents realdata={pagedata} previewdata={preview} />
+            </div>
         </>
     )
 }

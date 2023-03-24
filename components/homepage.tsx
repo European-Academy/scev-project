@@ -200,7 +200,7 @@ export function HomeFn({ data }: any) {
                                                         {items.head.map((tbdata: any) => (
                                                             <tr key={tbdata._key}>
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <th key={cells._key} className="text-3xl">{cells}</th>
+                                                                    <th key={cells._key} className="font-poppinsBold text-4xl md:w-1/4 md:pb-10">{cells}</th>
                                                                 ))}
                                                             </tr>
                                                         ))}
@@ -209,7 +209,7 @@ export function HomeFn({ data }: any) {
                                                         {items.body.map((tbdata: any) => (
                                                             <tr key={tbdata._key}>
                                                                 {tbdata.cells.map((cells: any) => (
-                                                                    <td key={cells._key} className="text-xl">{cells}</td>
+                                                                    <td key={cells._key} className="text-xl md:px-2">{cells}</td>
                                                                 ))}
                                                             </tr>
                                                         ))}

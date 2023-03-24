@@ -20,7 +20,7 @@ export const NavBar: React.FC<{
             <>
                 <div>
                     <Link to={dataLink} spy={true} smooth={true}>
-                        <button className="text-black hover:text-gray font-bold text-lg uppercase">{data}</button>
+                        <button className="text-black hover:text-gray font-poppinsBold text-lg uppercase">{data}</button>
                     </Link>
                 </div>
             </>

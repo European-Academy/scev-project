@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'poppinsSemi': ['PoppinsSemi', 'sans-serif'],
+        'poppinsBold': ['PoppinsBold', 'sans-serif'],
+      },
       colors: {
         yellow: "#FFDA61",
         blue: "#414EE3",

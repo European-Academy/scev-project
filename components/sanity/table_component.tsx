@@ -8,7 +8,7 @@ export const TableComponent: React.FC<{
 
     return (
         <>
-            <table className='table-fixed'>
+            <table className='table-fixed text-center'>
                 {children}
                 {/* <thead>
                     <tr>

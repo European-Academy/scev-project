@@ -8,7 +8,7 @@ export const Title: React.FC<{
     return (
         <div>
             <div className={clsx(
-                'md:text-3xl text-xl pb-6 pt-6 font-bold',
+                'md:text-3xl text-xl pb-6 pt-6 font-poppinsBold',
                 big ? 'md:text-7xl text-5xl': '',
             )}>
                 {title}
