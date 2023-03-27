@@ -22,7 +22,7 @@ export const Button: React.FC<{
                 children
             ) : (
                 <>
-                    {/* <div className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden'>
+                    <div className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden'>
                         <div className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-40' />
                         <div className='fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden grid grid-cols-1 gap-4 content-center justify-items-center'>
                             <Image
@@ -34,7 +34,7 @@ export const Button: React.FC<{
                             />
                         </div>
                     </div>
-                    {children} */}
+                    {children}
                 </>
             )}
         </button>

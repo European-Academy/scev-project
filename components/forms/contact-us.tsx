@@ -1,11 +1,11 @@
 import { Button } from "../common/button";
 import { Input } from "../common/input";
 import { useForm } from "react-hook-form"
+// import { useState } from "react"
 
-export const ContactUs: React.FC<{
-    
-}> = () => {
+export const ContactUs: React.FC<{}> = () => {
     const { handleSubmit, control, formState } = useForm()
+    // const [ submitted, setSubmitted ] = useState(false)
 
     const onSubmit = (data: any) => {
         console.log(data)
