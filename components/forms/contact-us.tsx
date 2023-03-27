@@ -1,14 +1,31 @@
 import { Button } from "../common/button";
 import { Input } from "../common/input";
 import { useForm } from "react-hook-form"
-// import { useState } from "react"
 
-export const ContactUs: React.FC<{}> = () => {
+export const ContactUs: React.FC<{
+    
+}> = () => {
     const { handleSubmit, control, formState } = useForm()
-    // const [ submitted, setSubmitted ] = useState(false)
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async (data: any) => {
         console.log(data)
+        const response = await fetch('/api/contact-api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name:data.uname,
+                email: data.email,
+                subject: data.subject,
+                message: data.message
+            })
+        })
+        const json = await response.json()
+        if (!response.ok) {
+          console.log('error sending contact us form')
+        }
+        console.log(json)
     }
 
     return (
