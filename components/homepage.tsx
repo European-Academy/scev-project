@@ -57,18 +57,11 @@ export const query = groq`
         blockHeading,
         "contents": blockContent
     },
-    "funFacts": pageBuilder[@.slug.current == 'fun-facts'] {
+    "funFacts2": pageBuilder[@.slug.current == 'fun-fact-2'] {
         _key,
-        heading,
-        "head":[blockTable.rows[0]] {
-            _key,
-            cells
-          },
-          "body":[blockTable.rows[1]] {
-            _key,
-            cells
-          }
-    },
+        blockHeading,
+        "contents": blockContent
+      },
     "headGetin": pageBuilder[@.slug.current == 'getin-touch'] {
         _key,
         heading
@@ -190,7 +183,7 @@ export function HomeFn({ data }: any) {
                                 ))}
                             </PagePadding>
                         </div>
-                        <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
+                        {/* <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom text-white">
                                 <div className="md:py-48 py-32">
                                     <PagePadding>
@@ -221,6 +214,22 @@ export function HomeFn({ data }: any) {
                                         ))}
                                     </PagePadding>
                                 </div>
+                            </div>
+                        </div> */}
+                        <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
+                            <div className="items-center justify-center h-full w-full bg-custom text-white">
+                                <PagePadding>
+                                    <div className="md:py-16">
+                                        {page.funFacts2.map((items: any) => (
+                                            <div key={items._key} className="py-16">
+                                                <Title title={items.blockHeading} big />
+                                                <div className="py-10 text-center">
+                                                    {BlockComponent(items.contents)}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </PagePadding>
                             </div>
                         </div>
                         <div id="to_contact">
