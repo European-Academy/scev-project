@@ -13,6 +13,8 @@ export const Input: React.FC<{
     defaultValue?: string | number
     pattern?: any
     disabled?: boolean
+    textarea?:boolean
+    
     onChange?(e: ChangeEvent<HTMLInputElement>): void
 }> = (params) => {
     return (
@@ -30,7 +32,31 @@ export const Input: React.FC<{
                             </span>
                         )}
 
-                        <input
+                        {params.textarea == true && (
+                            <textarea
+                            {...field}
+                            // type={params.type ?? 'text'}
+                            id={params.name}
+                            name={params.name}
+                            value={field.value}
+                            required={params.required ?? false}
+                            autoFocus={params.autoFocus}
+                            // pattern={params.pattern}
+                            disabled={params.disabled ?? formState.isSubmitting}
+                            placeholder={params.placeholder}
+                            // onChange={(e) => {
+                            //     field.onChange(e)
+                            //     params.onChange && params.onChange(e)
+                            // }}
+                            className={clsx(
+                                "shadow-sm focus:ring-blue focus:border-blue block w-full sm:text-sm border-gray-300",
+                                params.label == null ? "" : "rounded-r-md"
+                            )}
+                            cols={20} rows={9}
+                        />
+                        )}
+                        {params.textarea == false && (
+                            <input
                             {...field}
                             type={params.type ?? 'text'}
                             id={params.name}
@@ -50,6 +76,7 @@ export const Input: React.FC<{
                                 params.label == null ? "" : "rounded-r-md"
                             )}
                         />
+                        )}
                     </div>
                 </>
             )}

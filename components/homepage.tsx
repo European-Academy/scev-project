@@ -92,6 +92,8 @@ export function HomeFn({ data }: any) {
                 <div key={page._id}>
                     <Head>
                         <title>{page.pageTitle}</title>
+                        <meta name="description" content={page.description} />
+                        <meta name="keywords" content={page.keyword} />
                     </Head>
                     <div>
                         <NavBar />
@@ -154,7 +156,7 @@ export function HomeFn({ data }: any) {
                                 <Grid three>
                                     {items.imageUrl.map((img: any) => (
                                         <div key={img._key} className="w-full">
-                                            <Image alt={img.alt} src={img.url} width={500} height={500} />
+                                            <Image alt={img.alt} src={img.url} width={1000} height={500} />
                                         </div>
                                     ))}
                                 </Grid>
@@ -246,9 +248,7 @@ export function HomeFn({ data }: any) {
                                     {/* </PagePadding> */}
                                     <Grid two>
                                         <div className="md:relative md:w-full">
-                                            <div className="md:absolute md:inset-y-0 md:right-0 md:w-3/5">
-                                                <ContactUs />
-                                            </div>
+                                            <ContactUs />
                                         </div>
                                         <div>
                                             <div className="mb-6">
@@ -276,7 +276,7 @@ export function HomeFn({ data }: any) {
                             </div>
                         </div>
                         <div>
-                            <Footer/>
+                            <Footer />
                         </div>
                     </div>
                 </div>

@@ -47,7 +47,7 @@ export const ContactUs: React.FC<{
                                     type="text"
                                     placeholder='Name*'
                                     required={true}
-
+                                    textarea={false}
                                 />
                             </div>
                             <div>
@@ -57,6 +57,7 @@ export const ContactUs: React.FC<{
                                     type="email"
                                     placeholder='Email*'
                                     required={true}
+                                    textarea={false}
                                 />
                             </div>
                             <div>
@@ -66,7 +67,7 @@ export const ContactUs: React.FC<{
                                     type="text"
                                     placeholder='Subject*'
                                     required={true}
-
+                                    textarea={false}
                                 />
                             </div>
                             <div>
@@ -76,7 +77,7 @@ export const ContactUs: React.FC<{
                                     type="text"
                                     placeholder='Message*'
                                     required={true}
-
+                                    textarea={true}
                                 />
                             </div>
                         </div>
