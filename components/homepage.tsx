@@ -10,7 +10,8 @@ import {
     Grid,
     NavBar,
     TableComponent,
-    ContactUs
+    ContactUs,
+    Footer
 } from './index'
 
 export const query = groq`
@@ -273,6 +274,9 @@ export function HomeFn({ data }: any) {
                                     </Grid>
                                 </PagePadding>
                             </div>
+                        </div>
+                        <div>
+                            <Footer/>
                         </div>
                     </div>
                 </div>
