@@ -127,7 +127,7 @@ export function HomeFn({ data }: any) {
                             </PagePadding>
                         </div>
                         <div id="to_services" className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
-                            <div className="items-center justify-center h-full w-full bg-custom">
+                            <div className="items-center justify-center h-full w-full bg-custom text-white">
                                 <PagePadding>
                                     <div className="md:py-16">
                                         {page.ourServices.map((items: any) => (

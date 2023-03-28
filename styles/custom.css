@@ -22,7 +22,7 @@
     @apply flex md:flex-row flex-col flex-auto
 }
 .custom-ul li {
-    @apply px-6 md:w-1/3 text-3xl font-semibold
+    @apply px-6 py-6 md:py-0 md:w-1/3 text-3xl font-semibold
 }
 
 .custom-ul li>ul {
@@ -30,12 +30,16 @@
 }
 
 .custom-ul li>ul>li {
-    @apply px-0 w-full text-lg font-semibold
+    @apply px-0 w-full py-0 text-lg font-semibold
 }
 
 .tr-className {
     @apply flex flex-col mb-4 md:table-row
   }
+
+p {
+    @apply py-2
+}
 
 /* .th-class, .td-class {
     @apply font-poppinsBold text-4xl md:w-1/4 md:py-10
