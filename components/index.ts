@@ -7,6 +7,7 @@ export * from './common/input'
 export * from './common/navbar'
 export * from './common/page-padding'
 export * from './common/title'
+export * from './common/modal'
 
 export * from './sanity/portable_component'
 export * from './sanity/table_component'
