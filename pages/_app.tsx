@@ -1,18 +1,18 @@
-// import './styles/globals.css'
 import '../styles/globals.css'
 import '../styles/custom.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import Script from 'next/script'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return(
-  <>
-  <Head>
+  return (
+    <>
+      <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
 
         <meta name="theme-color" content="#440099" />
         <meta name="mobile-web-app-capable" content="yes" />
-        
+
         <link
           href="/icons/favicon-16x16.png"
           rel="icon"
@@ -28,7 +28,23 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <meta name="theme-color" content="#440099" />
       </Head>
-    <Component {...pageProps} />
-  </>
+      <div className="container">
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LTLMX5KNJG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-LTLMX5KNJG');
+        `}
+        </Script>
+      </div>
+      <Component {...pageProps} />
+    </>
   )
 }
