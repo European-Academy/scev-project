@@ -14,10 +14,13 @@ module.exports = {
       },
       colors: {
         yellow: "#FFDA61",
-        blue: "#414EE3",
+        blue: {
+          DEFAULT: "#414EE3",
+          '1': "#4D5AC3"
+        },
         gray: {
-        DEFAULT: "#42484D",
-        '1': "#CCCFCD",
+          DEFAULT: "#42484D",
+          '1': "#CCCFCD",
         }
       }
     },

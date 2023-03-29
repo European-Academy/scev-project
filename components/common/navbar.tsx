@@ -20,7 +20,7 @@ export const NavBar: React.FC<{
             <>
                 <div className="py-2 md:py-0">
                     <Link to={dataLink} spy={true} smooth={true}>
-                        <button className="text-black hover:text-gray font-poppinsBold text-lg uppercase">{data}</button>
+                        <button className="text-blue-1 hover:text-gray font-poppinsSemi text-lg uppercase">{data}</button>
                     </Link>
                 </div>
             </>
@@ -29,7 +29,7 @@ export const NavBar: React.FC<{
 
     return (
         <>
-            <Popover className="bg-white sticky top-0">
+            <Popover className="bg-white sticky top-0 drop-shadow-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between py-5 md:space-x-10">
                         <div className="flex lg:flex-1">

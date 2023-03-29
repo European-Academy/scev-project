@@ -111,7 +111,7 @@ export function HomeFn({ data }: any) {
                         <div id="to_whyus" className="bg-gray text-white md:py-20 py-14">
                             <PagePadding>
                                 {page.whyUs.map((items: any) => (
-                                    <div key={items._key} className="md:py-16">
+                                    <div key={items._key}>
 
                                         <Title title={items.blockHeading} big />
                                         <div className="text-xl">
@@ -125,11 +125,11 @@ export function HomeFn({ data }: any) {
                         <div id="to_services" className="items-center justify-center bg-fixed bg-center bg-cover service-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom text-white">
                                 <PagePadding>
-                                    <div className="md:py-16">
+                                    <div>
                                         {page.ourServices.map((items: any) => (
                                             <div key={items._key} className="py-16">
                                                 <Title title={items.blockHeading} big />
-                                                <div className="py-10">
+                                                <div className="md:pt-10">
                                                     {BlockComponent(items.contents)}
                                                 </div>
                                             </div>
@@ -141,9 +141,9 @@ export function HomeFn({ data }: any) {
                         <div className="md:py-20 py-14">
                             <PagePadding>
                                 {page.ourApproach.map((items: any) => (
-                                    <div key={items._key} className="py-16">
+                                    <div key={items._key}>
                                         <Title title={items.blockHeading} big />
-                                        <div className="py-10">
+                                        <div className="md:pt-10">
                                             {BlockComponent(items.contents)}
                                         </div>
                                     </div>
@@ -162,12 +162,12 @@ export function HomeFn({ data }: any) {
                                 </Grid>
                             </div>
                         ))}
-                        <div id="to_about" className="md:py-20 py-14">
+                        <div id="to_about">
                             <PagePadding>
                                 {page.aboutUs.map((items: any) => (
                                     <div key={items._key} className="py-16">
                                         <Title title={items.blockHeading} big />
-                                        <div className="py-10">
+                                        <div className="md:pt-10">
                                             {BlockComponent(items.contents)}
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@ export function HomeFn({ data }: any) {
                                 {page.ethics.map((items: any) => (
                                     <div key={items._key}>
                                         <Title title={items.blockHeading} big />
-                                        <div className="py-10">
+                                        <div className="md:pt-10">
                                             {BlockComponent(items.contents)}
                                         </div>
                                     </div>
@@ -222,11 +222,11 @@ export function HomeFn({ data }: any) {
                         <div className="items-center justify-center bg-fixed bg-center bg-cover fun-parallax">
                             <div className="items-center justify-center h-full w-full bg-custom text-white">
                                 <PagePadding>
-                                    <div className="md:py-16">
+                                    <div className="md:py-16 pt-14">
                                         {page.funFacts2.map((items: any) => (
-                                            <div key={items._key} className="py-16">
+                                            <div key={items._key}>
                                                 <Title title={items.blockHeading} big />
-                                                <div className="py-10 text-center">
+                                                <div className="md:pt-10 text-center">
                                                     {BlockComponent(items.contents)}
                                                 </div>
                                             </div>
@@ -236,7 +236,7 @@ export function HomeFn({ data }: any) {
                             </div>
                         </div>
                         <div id="to_contact">
-                            <div className="py-32">
+                            <div className="pt-16">
                                 <PagePadding>
                                     <div>
                                         {page.headGetin.map((items: any) => (
