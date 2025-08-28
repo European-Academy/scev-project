@@ -7,6 +7,6 @@ module.exports = nextConfig
 
 module.exports = {
 	images: {
-		domains: ['cdn.sanity.io']
+		domains: ['cdn.sanity.io', 'd1atdh4wnzq7o3.cloudfront.net']
 	}
 };

@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { useRouter } from 'next/router'
 import Links from 'next/link'
 import Image from "next/image";
 import { Disclosure, Popover, Transition } from "@headlessui/react";
@@ -14,14 +15,30 @@ export const NavBar: React.FC<{
     button?: boolean
     btn_url?: any
 }> = ({ menu, url, yes_scroll, scroll_to }) => {
+    const router = useRouter()
 
     const Btns = ({ data, dataLink }: any) => {
+        const isHomePage = router.pathname === '/'
+        if (isHomePage) {
+            return (
+                <>
+                    <div className="py-2 md:py-0">
+                        <Link to={dataLink} spy={true} smooth={true}>
+                            <button className="text-blue-1 hover:text-gray font-poppinsSemi text-lg uppercase">{data}</button>
+                        </Link>
+                    </div>
+                </>
+            )
+        }
+
+        // Not on home page: navigate to home with hash for section, or just home for "Home"
+        const href = dataLink && dataLink !== 'to_banner' ? `/#${dataLink}` : '/'
         return (
             <>
                 <div className="py-2 md:py-0">
-                    <Link to={dataLink} spy={true} smooth={true}>
+                    <Links href={href}>
                         <button className="text-blue-1 hover:text-gray font-poppinsSemi text-lg uppercase">{data}</button>
-                    </Link>
+                    </Links>
                 </div>
             </>
         )
@@ -29,7 +46,7 @@ export const NavBar: React.FC<{
 
     return (
         <>
-            <Popover className="bg-white sticky top-0 drop-shadow-md">
+            <Popover className="bg-white sticky top-0 drop-shadow-md z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between py-5 md:space-x-10">
                         <div className="flex lg:flex-1">
@@ -51,6 +68,11 @@ export const NavBar: React.FC<{
                             <Btns data="Why Us" dataLink="to_whyus" />
                             <Btns data="Our Services" dataLink="to_services" />
                             <Btns data="About Us" dataLink="to_about" />
+                            <div className="py-2 md:py-0">
+                                <Links href="/news">
+                                    <button className="text-blue-1 hover:text-gray font-poppinsSemi text-lg uppercase">News</button>
+                                </Links>
+                            </div>
                             <Btns data="Contact" dataLink="to_contact" />
                         </div>
                         <div className="-mr-2 -my-2 md:hidden">
@@ -104,6 +126,11 @@ export const NavBar: React.FC<{
                                     <Btns data="Why Us" dataLink="to_whyus" />
                                     <Btns data="Our Services" dataLink="to_services" />
                                     <Btns data="About Us" dataLink="to_about" />
+                                    <div className="py-2 md:py-0">
+                                        <Links href="/news">
+                                            <button className="text-blue-1 hover:text-gray font-poppinsSemi text-lg uppercase">News</button>
+                                        </Links>
+                                    </div>
                                     <Btns data="Contact" dataLink="to_contact" />
                                 </div>
                             </div>
