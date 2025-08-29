@@ -31,6 +31,7 @@ export const Button: React.FC<{
                                 width="150"
                                 height="150"
                                 alt="loading"
+                                unoptimized
                             />
                         </div>
                     </div>

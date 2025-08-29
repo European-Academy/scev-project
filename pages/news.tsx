@@ -49,6 +49,7 @@ export default function NewsPage({ pagedata, posts }: NewsPageProps) {
                               fill
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                               style={{ objectFit: 'cover' }}
+                              unoptimized
                             />
                           </div>
                         )}

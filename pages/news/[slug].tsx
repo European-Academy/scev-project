@@ -40,6 +40,7 @@ export default function PostPage({ post }: PostPageProps) {
                             height={section.image.asset.metadata.dimensions.height}
                             sizes="100vw"
                             style={{ width: '100%', height: 'auto' }}
+                            unoptimized
                           />
                         </div>
                       )}
@@ -71,6 +72,7 @@ export default function PostPage({ post }: PostPageProps) {
                                 fill
                                 sizes="25vw"
                                 style={{ objectFit: 'cover' }}
+                                unoptimized
                               />
                             )}
                           </button>
@@ -115,6 +117,7 @@ export default function PostPage({ post }: PostPageProps) {
                   fill
                   sizes="100vw"
                   style={{ objectFit: 'contain' }}
+                  unoptimized
                 />
               </div>
             </div>
