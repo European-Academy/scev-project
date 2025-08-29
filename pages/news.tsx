@@ -29,7 +29,7 @@ export default function NewsPage({ pagedata, posts }: NewsPageProps) {
             {page.keyword && <meta name="keywords" content={page.keyword} />}
           </Head>
           <NavBar />
-          <div>
+          <div className="flex flex-col min-h-screen">
             <PagePadding>
               {page.newsTitle.map((items: any) => (
                 <div key={items._key}>
