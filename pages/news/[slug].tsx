@@ -18,7 +18,7 @@ export default function PostPage({ post }: PostPageProps) {
   return (
     <>
       <Head>
-        <title>{post.postTitle || 'Post | Scientific Events'}</title>
+        <title>{post.postTitle || ' | Scientific Events'}</title>
         {post.description && <meta name="description" content={post.description} />}
       </Head>
       <NavBar />
