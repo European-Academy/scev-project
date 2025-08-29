@@ -11,9 +11,9 @@ type PostPageProps = {
 }
 
 export default function PostPage({ post }: PostPageProps) {
-  if (!post) return null
-
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null)
+
+  if (!post) return null
 
   return (
     <>
