@@ -58,6 +58,7 @@ export const NavBar: React.FC<{
                                         alt="Scientific Events"
                                         width={134}
                                         height={60}
+                                        unoptimized
                                     />
                                     {/* </a> */}
                                 </Links>
